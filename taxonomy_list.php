@@ -16,7 +16,8 @@ function mz_list_taxonomy_cp_shortcode($atts) {
                 'name' => 'category'
                 ), $atts );
 	$args = array(
-            'taxonomy'=> $name_att['name'] 
+            'taxonomy'=> $name_att['name'],
+            'title_li'     => ''
   	);
     echo '<ul>';
 	wp_list_categories( $args );
@@ -54,7 +55,7 @@ class mz_Taxonomy_Widget extends WP_Widget {
 		
 		if(!empty($title)){ echo $before_title . $title . $after_title; }
 		echo '<ul>';
-		wp_list_categories( $selected_taxonomy );
+		wp_list_categories('title_li=&taxonomy='.$selected_taxonomy );
 		echo '</ul>';
 		echo $after_widget;
 	}
