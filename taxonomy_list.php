@@ -16,11 +16,16 @@ function mz_list_taxonomy_cp_shortcode($atts) {
                 'name' => 'category'
                 ), $atts );
 	$args = array(
-            'taxonomy'=> $name_att['name'] 
+            'taxonomy'=> $name_att['name'],
+            'title_li'     => ''
   	);
-    echo '<ul>';
+  	ob_start();
+    	echo '<ul>';
 	wp_list_categories( $args );
-    echo '</ul>';
+    	echo '</ul>';
+    	$ret = ob_get_contents();
+	ob_end_clean();
+	return $ret;
 }
  
 function mz_taxonomy_register_shortcode() {
@@ -54,7 +59,7 @@ class mz_Taxonomy_Widget extends WP_Widget {
 		
 		if(!empty($title)){ echo $before_title . $title . $after_title; }
 		echo '<ul>';
-		wp_list_categories( $selected_taxonomy );
+		wp_list_categories('title_li=&taxonomy='.$selected_taxonomy );
 		echo '</ul>';
 		echo $after_widget;
 	}
@@ -98,8 +103,8 @@ add_action( 'widgets_init', 'mz_myplugin_register_widgets' );
 
 // load plugin translation
 
-function mz-taxonomy_load_plugin_textdomain() {
+function mz_taxonomy_load_plugin_textdomain() {
     load_plugin_textdomain( 'mz-taxonomy', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 }
-add_action( 'plugins_loaded', 'mz-taxonomy_load_plugin_textdomain' );
+add_action( 'plugins_loaded', 'mz_taxonomy_load_plugin_textdomain' );
 ?>
