@@ -1,16 +1,16 @@
 <?php
 /*
-Plugin Name: MZ Taxonomy
+Plugin Name: CP Taxonomy
 Description: Taxonomy widget and shorcode. Default taxonomy is category.
 Version: 0.1
-Author: Maksim Zinchenko
-Author URI: https://www.facebook.com/maksim.zinchenko.1
+Author: CasePress
+Author URI: http://cp.casepress.org/cases/11646/
 Domain Path: /languages
 Text Domain: mz-taxonomy
 */
 
 // Shortcode area begin
-function mz_list_taxonomy_cp_shortcode($atts) {
+function cp_list_taxonomy_cp_shortcode($atts) {
 	// get name from $atts (category by default) and echo list of taxonomy
 	$name_att = shortcode_atts( array(
                 'name' => 'category'
@@ -28,26 +28,26 @@ function mz_list_taxonomy_cp_shortcode($atts) {
 	return $ret;
 }
  
-function mz_taxonomy_register_shortcode() {
+function cp_taxonomy_register_shortcode() {
 	// shortcode list_taxonomy_cp handler
-    add_shortcode( 'list_taxonomy_cp', 'mz_list_taxonomy_cp_shortcode' );
+    add_shortcode( 'list_taxonomy_cp', 'cp_list_taxonomy_cp_shortcode' );
 }
 
 // hook shortcode handler to init action 
-add_action( 'init', 'mz_taxonomy_register_shortcode' );
+add_action( 'init', 'cp_taxonomy_register_shortcode' );
 
 // Shortcode area end
 
 // Widget begin
 
-class mz_Taxonomy_Widget extends WP_Widget {
-	function mz_Taxonomy_Widget() {
+class cp_Taxonomy_Widget extends WP_Widget {
+	function cp_Taxonomy_Widget() {
 		// Instantiate the parent object
 		$widget_options = array(
-							'classname'=> 'mz_taxonomy_widget_classname',
+							'classname'=> 'cp_taxonomy_widget_classname',
 							'description'=> __('A simple widget to show selected taxonomy.','mz-taxonomy'),
 							);
-		$this->WP_Widget('mz_Taxonomy_Widget', __('MZ Taxonomy Widget','mz-taxonomy'), $widget_options);
+		$this->WP_Widget('cp_Taxonomy_Widget', __('CP Taxonomy Widget','mz-taxonomy'), $widget_options);
 	}
 
 	function widget( $args, $instance ) {
@@ -91,20 +91,20 @@ class mz_Taxonomy_Widget extends WP_Widget {
 	}
 }
 
-function mz_myplugin_register_widgets() {
+function cp_myplugin_register_widgets() {
 	// register widget
-	register_widget( 'mz_Taxonomy_Widget' );
+	register_widget( 'cp_Taxonomy_Widget' );
 }
 
 // hook widget register function to widget_init action
-add_action( 'widgets_init', 'mz_myplugin_register_widgets' );
+add_action( 'widgets_init', 'cp_myplugin_register_widgets' );
 
 // Widget end
 
 // load plugin translation
 
-function mz_taxonomy_load_plugin_textdomain() {
+function cp_taxonomy_load_plugin_textdomain() {
     load_plugin_textdomain( 'mz-taxonomy', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 }
-add_action( 'plugins_loaded', 'mz_taxonomy_load_plugin_textdomain' );
+add_action( 'plugins_loaded', 'cp_taxonomy_load_plugin_textdomain' );
 ?>
