@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: CP Taxonomy
-Description: Taxonomy widget and shorcode. Default taxonomy is category.
+Plugin Name: Taxonomy List by Systmo
+Description: Taxonomy widget and shorcode. Default taxonomy is category [list_taxonomy_s taxonomy="slug"]
 Version: 0.1
 Author: CasePress
-Author URI: http://cp.casepress.org/cases/11646/
+Author URI: https://github.com/systemo-biz/taxonomy_list
 Domain Path: /languages
 Text Domain: mz-taxonomy
 */
@@ -30,7 +30,7 @@ function cp_list_taxonomy_cp_shortcode($atts) {
  
 function cp_taxonomy_register_shortcode() {
 	// shortcode list_taxonomy_cp handler
-    add_shortcode( 'list_taxonomy_cp', 'cp_list_taxonomy_cp_shortcode' );
+    add_shortcode( 'list_taxonomy_s', 'cp_list_taxonomy_cp_shortcode' );
 }
 
 // hook shortcode handler to init action 
