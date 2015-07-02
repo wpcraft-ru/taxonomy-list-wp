@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Taxonomy List by Systmo
+Plugin Name: Taxonomy List by Systemo
 Description: Taxonomy widget and shorcode. Default taxonomy is category [list_taxonomy_s taxonomy="slug"]
 Author: CasePress
 Author URI: https://github.com/systemo-biz/taxonomy_list
@@ -8,7 +8,7 @@ Domain Path: /languages
 Text Domain: mz-taxonomy
 GitHub Plugin URI: https://github.com/systemo-biz/taxonomy_list
 GitHub Branch: master
-Version: 20150702-1
+Version: 20150702-2
 */
 
 // Shortcode area begin
