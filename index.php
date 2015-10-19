@@ -8,7 +8,7 @@ Domain Path: /languages
 Text Domain: mz-taxonomy
 GitHub Plugin URI: https://github.com/systemo-biz/taxonomy_list
 GitHub Branch: master
-Version: 20150702-2
+Version: 20151012-1
 */
 
 // Shortcode area begin
