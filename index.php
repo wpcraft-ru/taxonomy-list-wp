@@ -12,7 +12,7 @@ Version: 20151012-1
 */
 
 // Shortcode area begin
-function cp_list_taxonomy_cp_shortcode($atts) {
+add_shortcode( 'list-taxonomy-s', function($atts) {
 	// get name from $atts (category by default) and echo list of taxonomy
 	$name_att = shortcode_atts( array(
                 'name' => 'category'
@@ -28,15 +28,8 @@ function cp_list_taxonomy_cp_shortcode($atts) {
     	$ret = ob_get_contents();
 	ob_end_clean();
 	return $ret;
-}
- 
-function cp_taxonomy_register_shortcode() {
-	// shortcode list_taxonomy_cp handler
-    add_shortcode( 'list-taxonomy-s', 'cp_list_taxonomy_cp_shortcode' );
-}
+});
 
-// hook shortcode handler to init action 
-add_action( 'init', 'cp_taxonomy_register_shortcode' );
 
 // Shortcode area end
 
@@ -59,10 +52,9 @@ class cp_Taxonomy_Widget extends WP_Widget {
 		$title = apply_filters('widget_title', $instance['title']);
 		$selected_taxonomy = empty($instance['selected_taxonomy']) ? '' : $instance['selected_taxonomy'];
 		
-		if(!empty($title)){ echo $before_title . $title . $after_title; }
-		echo '<ul>';
-		wp_list_categories('title_li=&taxonomy='.$selected_taxonomy );
-		echo '</ul>';
+		if(!empty($title)) echo $before_title . $title . $after_title;
+		echo do_shortcode("[list-taxonomy-s taxonomy='. $selected_taxonomy .']");
+
 		echo $after_widget;
 	}
 
