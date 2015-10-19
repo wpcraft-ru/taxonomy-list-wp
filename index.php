@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Taxonomy List by Systemo
-Description: Taxonomy widget and shorcode. Default taxonomy is category [list_taxonomy_s taxonomy="slug"]
+Description: Taxonomy widget and shorcode. Default taxonomy is category [list-taxonomy-s taxonomy="slug"]
 Author: CasePress
 Author URI: https://github.com/systemo-biz/taxonomy_list
 Domain Path: /languages
@@ -32,7 +32,7 @@ function cp_list_taxonomy_cp_shortcode($atts) {
  
 function cp_taxonomy_register_shortcode() {
 	// shortcode list_taxonomy_cp handler
-    add_shortcode( 'list_taxonomy_s', 'cp_list_taxonomy_cp_shortcode' );
+    add_shortcode( 'list-taxonomy-s', 'cp_list_taxonomy_cp_shortcode' );
 }
 
 // hook shortcode handler to init action 
