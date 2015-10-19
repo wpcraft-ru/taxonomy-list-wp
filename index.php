@@ -5,7 +5,7 @@ Description: Taxonomy widget and shorcode. Default taxonomy is category [list-ta
 Author: CasePress
 Author URI: https://github.com/systemo-biz/taxonomy_list
 Domain Path: /languages
-Text Domain: mz-taxonomy
+Text Domain: taxonomy-list-wp
 GitHub Plugin URI: https://github.com/systemo-biz/taxonomy_list
 GitHub Branch: master
 Version: 20151012-1
